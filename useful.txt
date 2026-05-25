@@ -21,3 +21,6 @@ avvia docker desktop (su win)
 docker-compose up -d --build
 
 docker-compose down -v (per spegnere il container)
+
+eseguire sql injection:
+php sql-injection.php
