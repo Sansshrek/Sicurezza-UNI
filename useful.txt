@@ -1,0 +1,23 @@
+Traccia 2 - SQL Injection
+Realizzare un attacco di SQL injection [1] di tipo inband, basato su input dell’utente e che utilizzi una o più delle seguenti modalità: Tautologia, commento di fine riga; query piggybacked. 
+Mediante l’injection di opportuni comandi mostrare che e’ possibile violare le tre proprietà CIA del database. Nello specifico, supponendo che il database e’ accessibile mediante un applicazione web vulnerabile e che l’attaccante non conosca la struttura delle database a priori:
+Raccogliere informazioni sulla struttura del DB o sulla sua configurazione
+Esfiltrare dati contenuti in una o piu’ tabelle del database 
+Modificare il contenuto del database, ad esempio modifica i valori di un campo all’interno di una tabella
+Concellare una o piu’ tabelle, o il loro contenuto
+
+Proporre ed implementare misure di difesa a livello di Database e a livello di applicazione web e mostrare la loro efficacia
+
+Suggerimenti:
+Supponete che il database sia accessibile mediante una applicazione web, ad esempio una pagina Php che genera query al DB
+Supponete che l’applicazione web sia vulnerabile (ad esempio non usi query parametrizzate o controlli sull’input)
+Il database server ed il web server  possono essere emulati mediante  docker container (o virtual machines)
+Scegliere versioni del software (OS, DB, Php, etc…) che siano vulnerabili ad attacchi SQLi o disabilitare eventuali meccanismi di protezione.
+[1] SQL Injection, https://capec.mitre.org/data/definitions/66.html
+
+
+per runnare:
+avvia docker desktop (su win)
+docker-compose up -d --build
+
+docker-compose down -v (per spegnere il container)

@@ -1,0 +1,164 @@
+body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #b0b6f3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        
+        .login-wrapper {
+            background: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            display: flex;
+            width: 900px;
+            max-width: 95%;
+            min-height: 500px;
+            overflow: hidden;
+        }
+
+        /* lato immagine */
+        .image-side {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #f5f5f5; 
+            padding: 30px;
+        }
+
+        .image-side img {
+            max-width: 100%;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* form */
+        .form-side {
+            flex: 1;
+            padding: 50px 60px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background-color: #ffffff;
+        }
+
+        .form-side h2 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 40px;
+            font-size: 26px;
+        }
+
+        .input-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .input-group i {
+            position: absolute;
+            top: 50%;
+            left: 20px;
+            transform: translateY(-50%);
+            color: #777;
+            font-size: 14px;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 20px 15px 45px;
+            background: #ebebeb;
+            border: 2px solid transparent;
+            border-radius: 30px;
+            font-size: 14px;
+            outline: none;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            transition: all 0.3s ease;
+        }
+
+        .input-group input:focus {
+            border-color: #5cb85c;
+            background: #ffffff;
+            box-shadow: 0 0 8px rgba(92, 184, 92, 0.2);
+        }
+
+        .btn-login {
+            width: 100%;
+            padding: 15px;
+            background: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 30px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background: #4cae4c;
+        }
+
+        /* link footer */
+        .forgot-link {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 13px;
+        }
+        
+        .forgot-link a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .forgot-link a:hover {
+            color: #333;
+        }
+
+        .create-account {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+        }
+
+        .create-account a {
+            color: #555;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        /* stile risultati */
+        .results-box {
+            margin-top: 25px;
+            max-height: 150px;
+            overflow-y: auto;
+            border-radius: 10px;
+            padding-right: 5px;
+        }
+        
+        .results-box::-webkit-scrollbar { width: 6px; }
+        .results-box::-webkit-scrollbar-thumb { background-color: #ccc; border-radius: 3px; }
+
+        .success-row {
+            background: #e6ffed;
+            border: 1px solid #95d5b2;
+            color: #2d6a4f;
+            padding: 10px 15px;
+            margin-bottom: 8px;
+            border-radius: 8px;
+            font-size: 13px;
+            word-wrap: break-word;
+        }
+
+        .error-row {
+            color: #d9534f;
+            text-align: center;
+            font-size: 14px;
+            margin-top: 15px;
+            font-weight: 500;
+        }
