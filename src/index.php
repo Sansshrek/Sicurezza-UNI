@@ -20,7 +20,6 @@ $password = $_GET['password'] ?? '';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -56,13 +55,13 @@ $password = $_GET['password'] ?? '';
                 
                 // check se il db è connesso
                 if ($db_error) {
-                    echo '<div class="error-row"><i class="fa fa-plug"></i> Servizio temporaneamente non disponibile (DB Offline).</div>';
+                    echo '<div class="error-row"> Servizio temporaneamente non disponibile (DB Offline).</div>';
                 } else {
                     // controlli della SQL injection
                     $tableExists = $conn->query("SHOW TABLES LIKE 'users'")->num_rows > 0;
                     
                     if (!$tableExists) {
-                        echo '<div class="error-row"><i class="fa fa-exclamation-triangle"></i> Accesso negato: Tabella "users" mancante o eliminata!</div>';
+                        echo '<div class="error-row"></i> Accesso negato: Tabella "users" mancante o eliminata!</div>';
                     } else {
                         $query = "SELECT * FROM users WHERE username = '$username' AND password = '$password'";
                         
@@ -85,10 +84,10 @@ $password = $_GET['password'] ?? '';
                             echo '</div>';
 
                             if (!$records_found) {
-                                echo '<div class="error-row"><i class="fa fa-times-circle"></i> Invalid Email or Password.</div>';
+                                echo '<div class="error-row"></i> Invalid Email or Password.</div>';
                             }
                         } else {
-                            echo '<div class="error-row"><i class="fa fa-bug"></i> Errore SQL: ' . $conn->error . '</div>';
+                            echo '<div class="error-row"></i> Errore SQL: ' . $conn->error . '</div>';
                         }
                     }
                 }
