@@ -18,9 +18,63 @@ Scegliere versioni del software (OS, DB, Php, etc…) che siano vulnerabili ad a
 
 per runnare:
 avvia docker desktop (su win)
-docker-compose up -d --build
+docker-compose up -d --build (carica pagina su localhost:8080)
 
 docker-compose down -v (per spegnere il container)
 
+Se hai gia fatto docker-compose up -d --build e vuoi riavviare il db
+    docker-compose down -v && docker-compose up -d
+
 eseguire sql injection:
 php sql-injection.php
+
+
+DIFESE:
+* X Limite tentativi di accesso: non ha senso nel nostro caso perche ha piu senso contro attacchi di bruteforce o di controllo degli IP (non si può fare)
+* X rimozione di caratteri come ' o -: limita la creazione delle password e comunque gli attaccanti bypassano i filtri usando il codice esadecimale (%27) o altro
+
+* least privilege: utente con minori permessi sul db rispetto al root cosi non può fare cose tipo DROP TABLE 
+* Hash delle password: cosi l'attaccante non vede le password se accede al db
+* query piggybacked (gli attacchi con piu query insieme): basta togliere "multi_query()"
+* Query parametrizzate: inserimento di parametri che il DB tratta come stringhe innocue da cercare invece di eseguire la query
+
+
+
+
+SQLi Countermeasures
+Because SQLi attacks are so prevalent, damaging, and varied both by attack avenue
+and type, a single countermeasure is insufficient. Rather an integrated set of techniques is necessary. In this section, we provide a brief overview of the types of countermeasures that are in use or being researched, using the classification in [SHAR13].
+These countermeasures can be classified into three types: defensive coding, detection,
+and run-time prevention.
+Many SQLi attacks succeed because developers have used insecure coding practices, as we discuss in Chapter 11. Thus, defensive coding is an effective way to dramatically reduce the threat from SQLi. Examples of defensive coding include the following:
+• Manual defensive coding practices: A common vulnerability exploited by SQLi
+attacks is insufficient input validation. The straightforward solution for eliminating these vulnerabilities is to apply suitable defensive coding practices. An
+example is input type checking, to check that inputs that are supposed to be
+numeric contain no characters other than digits. This type of technique can
+avoid attacks based on forcing errors in the database management system.
+Another type of coding practice is one that performs pattern matching to try
+to distinguish normal input from abnormal input.
+• Parameterized query insertion: This approach attempts to prevent SQLi by
+allowing the application developer to more accurately specify the structure
+of an SQL query, and pass the value parameters to it separately such that any
+unsanitary user input is not allowed to modify the query structure.
+• SQL DOM: SQL DOM is a set of classes that enables automated data type validation and escaping [MCCL05]. This approach uses encapsulation of database
+queries to provide a safe and reliable way to access databases. This changes the
+query-building process from an unregulated one that uses string concatenation
+to a systematic one that uses a type-checked API. Within the API, developers
+are able to systematically apply coding best practices such as input filtering and
+rigorous type checking of user input.
+A variety of detection methods have been developed, including the following:
+• Signature-based: This technique attempts to match specific attack patterns.
+Such an approach must be constantly updated and may not work against selfmodifying attacks.
+• Anomaly-based: This approach attempts to define normal behavior then
+detect behavior patterns outside the normal range. A number of approaches
+have been used. In general terms, there is a training phase, in which the
+system learns the range of normal behavior, followed by the actual detection phase.
+• Code analysis: Code analysis techniques involve the use of a test suite to detect
+SQLi vulnerabilities. The test suite is designed to generate a wide range of SQLi
+attacks and assess the response of the system.
+Finally, a number of run-time prevention techniques have been developed as
+SQLi countermeasures. These techniques check queries at runtime to see if they
+conform to a model of expected queries. Various automated tools are available for
+this purpose [CHAN11, SHAR13].

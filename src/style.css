@@ -20,7 +20,7 @@ body {
         }
 
         /* lato immagine */
-        .image-side {
+        .image-div {
             flex: 1;
             display: flex;
             justify-content: center;
@@ -29,14 +29,14 @@ body {
             padding: 30px;
         }
 
-        .image-side img {
+        .image-div img {
             max-width: 100%;
             height: auto;
             object-fit: contain;
         }
 
         /* form */
-        .form-side {
+        .form-div {
             flex: 1;
             padding: 50px 60px;
             display: flex;
@@ -45,7 +45,7 @@ body {
             background-color: #ffffff;
         }
 
-        .form-side h2 {
+        .form-div h2 {
             text-align: center;
             color: #333;
             margin-bottom: 40px;
@@ -85,6 +85,17 @@ body {
             box-shadow: 0 0 8px rgba(92, 184, 92, 0.2);
         }
 
+        #toggler {
+            left: auto;         /* Cancella la regola dei 20px a sinistra */
+            right: 20px;        /* Lo sposta a 20px dal margine destro */
+            cursor: pointer;    /* Fa comparire la manina quando ci passi sopra */
+            z-index: 10;        /* Si assicura che l'icona sia cliccabile sopra l'input */
+        }
+
+        .pwd-input{
+            padding-right: 45px !important;
+        }
+
         .btn-login {
             width: 100%;
             padding: 15px;
@@ -114,10 +125,6 @@ body {
             color: #888;
             text-decoration: none;
             transition: color 0.3s;
-        }
-
-        .forgot-link a:hover {
-            color: #333;
         }
 
         .create-account {
