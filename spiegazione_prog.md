@@ -29,7 +29,7 @@ Nel caso in cui il container sia già stato avviato ma si vuole riavviare per re
 ## Funzionamento
 L'utente interagisce tramite un form sulla pagina web che richiede username e password per l'accesso al sito (è solo un form finto per far vedere gli attacchi di SQLi).
 
-Inserendo i dati e facendo l'accesso il browser invia una richiesta GET alla stessa pagina allegando i parametri nell'url
+Inserendo i dati e facendo l'accesso il browser invia una richiesta GET alla stessa pagina allegando i parametri nell'url   
 Es sul sito insicuro: http://localhost:8080/unsecure.php?username=xxx&password=yyy
 Questi due parametri vengono poi recuperati e vengono usati per effettuare la richiesta al DB e recuperare l'utente
 
@@ -57,7 +57,7 @@ Possibili attacchi di tipo SQL Injection che un attaccante può eseguire:
         è il modo più veloce per scoprire le informazioni della tabella usata per il login
     * Con il comando 
         ```
-        ' UNION SELECT NULL, GROUP_CONCAT(table_name), NULL FROM information_schema.tables WHERE table_schema = DATABASE()-- -`
+        ' UNION SELECT NULL, GROUP_CONCAT(table_name), NULL FROM information_schema.tables WHERE table_schema = DATABASE()-- -
         ```
         effettuiamo un UNION SELECT sulla tabella `information_schema.tables` che contiene tutte le tabelle del DB per **scoprire i nomi delle tabelle**
 * **Esfiltrare i dati contenuti nelle tabelle** (**Confidenzialità violata**): Ora che sappiamo i nomi delle tabelle, per capire la struttura delle tabelle trovate possiamo usare:

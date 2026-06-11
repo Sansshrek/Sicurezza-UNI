@@ -66,7 +66,7 @@ $password = $_GET['password'] ?? '';
                         echo '<div class="error-row"></i> Accesso negato: Tabella "users" mancante o eliminata!</div>';
                     } else {
     
-                        // uso delle query parametrizzate e togliamo il multi_query() cosi non si possono piu accodare query
+                        // uso delle query parametrizzate e rimozione del multi_query() cosi non si possono piu accodare query
                         $query = $conn->prepare("SELECT * FROM secure_users WHERE username = ?");
                         
                         if ($query) {

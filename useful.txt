@@ -40,7 +40,7 @@ DIFESE:
 
 
 
-
+SEZIONE DEL LIBRO DI SICUREZZA:
 SQLi Countermeasures
 Because SQLi attacks are so prevalent, damaging, and varied both by attack avenue
 and type, a single countermeasure is insufficient. Rather an integrated set of techniques is necessary. In this section, we provide a brief overview of the types of countermeasures that are in use or being researched, using the classification in [SHAR13].

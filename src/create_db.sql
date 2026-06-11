@@ -98,3 +98,4 @@ REVOKE DROP, ALTER, CREATE ON testdb.* FROM 'least_privilege_user'@'%';
 
 -- ricarica i permessi del db
 FLUSH PRIVILEGES;
+
